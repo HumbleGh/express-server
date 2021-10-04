@@ -59,6 +59,3 @@ app.get('/customers/:customerID', (req, res) => {
     res.json(customers[customerID -1]);
 });
 
-app.listen(3000, ()=> {
-    console.log("up and running")
-})
