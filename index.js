@@ -23,13 +23,41 @@ const products = [
     }
 ];
 
+const customers = [
+    {
+        id: 1,
+        name: "Regan Kofi Marfo",
+        gender: "Male"
+    },
+    {
+        id: 2,
+        name: "Kwame Nkrumah",
+        gender: "Male"
+    },
+    {
+        id: 1,
+        name: "Yaa Asantewaa",
+        gender: "Female"
+    }
+]
+// This wil print the mesage 
 app.get('/', function (req, res) {
     res.json({message: 'Hello World'})
 })
-
+// This is a callback of products
 app.get('/products', (req, res) => {
     res.json(products);
-})
+});
+// This is a callback for customers
+app.get('/customers', (req, res) => {
+    res.json(customers);
+});
+
+app.get('/customers/:customerID', (req, res) => {
+    const {customerID} = req.params;
+    console.log(`The customer's id is ${customerID}`)
+    res.json(customers[customerID -1]);
+});
 
 app.listen(3000, ()=> {
     console.log("up and running")
