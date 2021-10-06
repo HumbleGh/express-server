@@ -40,7 +40,7 @@ const customers = [
         gender: "Female"
     }
 ]
-// This wil print the mesage 
+// This will print the message 
 app.get('/', function (req, res) {
     res.json({message: 'Hello World'})
 })
@@ -59,3 +59,6 @@ app.get('/customers/:customerID', (req, res) => {
     res.json(customers[customerID -1]);
 });
 
+app.listen(3000, ()=> {
+    console.log("up and running")
+})
